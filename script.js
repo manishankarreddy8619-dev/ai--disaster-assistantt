@@ -13,10 +13,23 @@ function getHelp() {
     else if (disaster === "Fire") {
         response = "🔥 Fire Emergency!\nLeave the building immediately. Do not use elevators.";
     } 
+    else if (disaster === "Cyclone") {
+        response = "🌪️ Cyclone Alert!\nStay indoors and keep emergency supplies ready.";
+    }
+    else if (disaster === "Landslide") {
+        response = "⛰️ Landslide Risk!\nMove away from slopes and unstable areas.";
+    }
     else {
         response = "⚠️ Stay safe and follow emergency instructions.";
     }
 
-    document.getElementById("output").innerText =
-        "📍 Location: " + location + "\n\n" + response;
+    // Show loading message
+    document.getElementById("output").innerText = "⏳ Getting AI response...";
+
+    // Fake AI delay
+    setTimeout(() => {
+        document.getElementById("output").innerText =
+            "📍 Location: " + location +
+            "\n\n🤖 AI Suggestion:\n" + response;
+    }, 1000);
 }
