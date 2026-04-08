@@ -16,13 +16,49 @@
     <option>Flood</option>
     <option>Fire</option>
     <option>Earthquake</option>
+    <option>Cyclone</option>
+    <option>Landslide</option>
 </select>
 
 <button onclick="getHelp()">Get Help</button>
 
 <p id="output"></p>
 
-<script src="script.js"></script>
+<script>
+function getHelp() {
+    let disaster = document.getElementById("disaster").value;
+    let location = document.getElementById("location").value;
+
+    let response = "";
+
+    if (disaster === "Flood") {
+        response = "🌊 Flood Alert!\nMove to higher ground. Avoid walking in water.";
+    } 
+    else if (disaster === "Earthquake") {
+        response = "🌍 Earthquake!\nDrop, cover, and hold on.";
+    } 
+    else if (disaster === "Fire") {
+        response = "🔥 Fire Emergency!\nLeave immediately. Do not use elevators.";
+    } 
+    else if (disaster === "Cyclone") {
+        response = "🌪️ Stay indoors and keep supplies ready.";
+    }
+    else if (disaster === "Landslide") {
+        response = "⛰️ Move away from slopes.";
+    }
+    else {
+        response = "⚠️ Stay safe.";
+    }
+
+    document.getElementById("output").innerText = "⏳ Getting AI response...";
+
+    setTimeout(() => {
+        document.getElementById("output").innerText =
+            "📍 Location: " + location +
+            "\n\n🤖 AI Suggestion:\n" + response;
+    }, 1000);
+}
+</script>
 
 </body>
 </html>
